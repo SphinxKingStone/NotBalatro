@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://crtgis0lmf5yy"]
+
+[ext_resource type="Material" uid="uid://br7xig4otwq7w" path="res://shaders/scales_shader.tres" id="1_mk83b"]
+[ext_resource type="Texture2D" uid="uid://wq7j75j05c8y" path="res://assets/images/card.png" id="2_2w67e"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.187757, 0.303194, 0.200714, 1)
+
+[node name="Card" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -158.0
+offset_right = 100.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture" type="TextureRect" parent="Card"]
+material = ExtResource("1_mk83b")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -158.0
+offset_right = 100.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2w67e")
+expand_mode = 1

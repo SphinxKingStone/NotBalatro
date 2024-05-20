@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://br7xig4otwq7w"]
+
+[ext_resource type="Shader" path="res://shaders/scales_shader.gdshader" id="1_uuxm1"]
+[ext_resource type="Texture2D" uid="uid://bkafwk54xchyc" path="res://assets/images/scales.png" id="2_v3ksf"]
+
+[resource]
+shader = ExtResource("1_uuxm1")
+shader_parameter/scales_strength = 4.0
+shader_parameter/scales_texture = ExtResource("2_v3ksf")
