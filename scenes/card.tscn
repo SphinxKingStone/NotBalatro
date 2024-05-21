@@ -17,6 +17,7 @@ offset_right = 148.0
 offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(76, 103.5)
 script = ExtResource("1_3iipp")
 
 [node name="Shadow" type="TextureRect" parent="."]
