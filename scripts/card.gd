@@ -107,8 +107,8 @@ func _on_gui_input(event: InputEvent) -> void:
 	var rot_x: float = rad_to_deg(lerp_angle(-angle_x_max, angle_x_max, lerp_val_x))
 	var rot_y: float = rad_to_deg(lerp_angle(angle_y_max, -angle_y_max, lerp_val_y))
 	
-	card_texture.material.set_shader_parameter("x_rot", rot_y)
-	card_texture.material.set_shader_parameter("y_rot", rot_x)
+	card_texture.material.set_shader_parameter("x_rot", rot_y * 0.4)
+	card_texture.material.set_shader_parameter("y_rot", rot_x * 0.4)
 
 func _on_mouse_entered() -> void:
 	if tween_hover and tween_hover.is_running():
