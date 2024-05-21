@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vlm5huhyiu53"]
+
+[ext_resource type="Shader" path="res://shaders/rainbow_effect.gdshader" id="1_oru1r"]
+
+[resource]
+shader = ExtResource("1_oru1r")
+shader_parameter/strength = 0.5
+shader_parameter/speed = 0.5
+shader_parameter/angle = 180.0
+shader_parameter/enabled = false
