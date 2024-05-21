@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_m0hxw"]
 [ext_resource type="PackedScene" uid="uid://d6otfyylg74q" path="res://scenes/card.tscn" id="2_wowag"]
-[ext_resource type="Material" uid="uid://vlm5huhyiu53" path="res://shaders/rainbow_effect.tres" id="3_jf785"]
+[ext_resource type="Material" uid="uid://vlm5huhyiu53" path="res://assets/shaders/rainbow_effect.tres" id="3_jf785"]
 
 [node name="Main" type="Control"]
 layout_mode = 3

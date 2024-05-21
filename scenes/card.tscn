@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_3iipp"]
 [ext_resource type="Texture2D" uid="uid://wq7j75j05c8y" path="res://assets/images/card.png" id="2_ho2iv"]
-[ext_resource type="Material" uid="uid://jqy5g16bmkgs" path="res://shaders/card_effects_shader.tres" id="3_mty2i"]
+[ext_resource type="Material" uid="uid://jqy5g16bmkgs" path="res://assets/shaders/card_effects_shader.tres" id="3_mty2i"]
 
 [node name="Card" type="Control"]
 layout_mode = 3

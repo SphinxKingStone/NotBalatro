@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://jqy5g16bmkgs"]
 
-[ext_resource type="Shader" path="res://shaders/card_effects_shader.gdshader" id="1_xe6st"]
+[ext_resource type="Shader" path="res://assets/shaders/card_effects_shader.gdshader" id="1_o0cpq"]
 [ext_resource type="Texture2D" uid="uid://bkafwk54xchyc" path="res://assets/images/scales.png" id="2_fqv8r"]
 
 [resource]
-shader = ExtResource("1_xe6st")
-shader_parameter/rect_size = Vector2(200, 270)
+shader = ExtResource("1_o0cpq")
+shader_parameter/rect_size = Vector2(152, 207)
 shader_parameter/fov = 90.0
 shader_parameter/cull_back = true
 shader_parameter/y_rot = 0.0

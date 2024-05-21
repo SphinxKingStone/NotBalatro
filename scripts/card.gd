@@ -2,7 +2,8 @@ extends Control
 
 @export var angle_x_max: float = 15.0
 @export var angle_y_max: float = 15.0
-@export var max_offset_shadow: float = 50.0
+@export var max_shadow_offset_x: float = 50.0
+@export var max_shadow_offset_y: float = 50.0
 
 @export_category("Oscillator")
 @export var spring: float = 150.0
@@ -59,8 +60,10 @@ func handle_shadow() -> void:
 	# Only x changes depending on how far we are from the center of the screen
 	var center: Vector2 = get_viewport_rect().size / 2.0
 	var distance: float = global_position.x - center.x
+	shadow.position.x = lerp(0.0, -sign(distance) * max_shadow_offset_x, abs(distance/(center.x)))
 	
-	shadow.position.x = lerp(0.0, -sign(distance) * max_offset_shadow, abs(distance/(center.x)))
+	distance = global_position.y - center.y
+	shadow.position.y = lerp(0.0, -sign(distance) * max_shadow_offset_y, abs(distance/(center.y)))
 
 func follow_mouse() -> void:
 	if not following_mouse: 
@@ -86,7 +89,6 @@ func handle_mouse_click(event: InputEvent) -> void:
 		tween_handle.tween_property(self, "rotation", 0.0, 0.3)
 
 func _on_gui_input(event: InputEvent) -> void:
-	
 	handle_mouse_click(event)
 	
 	# Don't compute rotation when moving the card
