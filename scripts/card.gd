@@ -6,9 +6,9 @@ extends Control
 @export var max_shadow_offset_y: float = 50.0
 
 @export_category("Oscillator")
-@export var spring: float = 150.0
-@export var damp: float = 10.0
-@export var velocity_multiplier: float = 0.75
+@export var spring: float = 250.0
+@export var damp: float = 18.0
+@export var velocity_multiplier: float = 1.65
 
 var displacement: float = 0.0 
 var oscillator_velocity: float = 0.0
@@ -93,6 +93,8 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	# Don't compute rotation when moving the card
 	if following_mouse: 
+		card_texture.material.set_shader_parameter("x_rot", 0.0)
+		card_texture.material.set_shader_parameter("y_rot", 0.0)
 		return
 	if not event is InputEventMouseMotion: 
 		return
