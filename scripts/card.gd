@@ -79,7 +79,7 @@ func handle_mouse_click(event: InputEvent) -> void:
 	
 	if event.is_pressed():
 		following_mouse = true
-		offset = get_global_mouse_position() - global_position
+		offset = get_global_mouse_position() - position
 	else:
 		# drop card
 		following_mouse = false
