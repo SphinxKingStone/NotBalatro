@@ -18,7 +18,11 @@ varying vec3 p;
 
 uniform sampler2D scales_texture; // inversed depth map
 uniform float scales_strength : hint_range(3.5, 10.0) = 4.0;
-uniform bool enable_scales = false;
+uniform bool enable_polychrome = false;
+
+uniform float strength: hint_range(0., 1.) = 0.5;
+uniform float speed: hint_range(0., 10.) = 0.5;
+uniform float angle: hint_range(0., 360.) = 45.;
 
 // Creates rotation matrix
 void vertex(){
@@ -59,15 +63,33 @@ void fragment(){
     COLOR = texture(TEXTURE, uv + 0.5);
 	COLOR.a *= step(max(abs(uv.x), abs(uv.y)), 0.5);
 	
-	if (enable_scales) {
+	if (enable_polychrome) {
 	vec3 new_color =  texture(scales_texture, uv + 0.5).rgb;
 	
-	// apply scales texture
-	COLOR.rgb = COLOR.rgb - new_color / scales_strength;
+	// rainbow part
+	float hue = UV.x * cos(radians(angle)) - UV.y * sin(radians(angle));
+	hue = fract(hue + fract(TIME  * speed));
+	float x = 1. - abs(mod(hue / (1./ 6.), 2.) - 1.);
+	vec3 rainbow;
+	if(hue < 1./6.){
+		rainbow = vec3(1., x, 0.);
+	} else if (hue < 1./3.) {
+		rainbow = vec3(x, 1., 0);
+	} else if (hue < 0.5) {
+		rainbow = vec3(0, 1., x);
+	} else if (hue < 2./3.) {
+		rainbow = vec3(0., x, 1.);
+	} else if (hue < 5./6.) {
+		rainbow = vec3(x, 0., 1.);
+	} else {
+		rainbow = vec3(1., 0., x);
+	}
+	vec4 color = texture(TEXTURE, uv + 0.5);
 	
-	//COLOR.rgb = COLOR.rgb * new_color * 1.1; // cool effect but not what's needed
+	// apply scales and rainbow texture
+	COLOR.rgb = COLOR.rgb - mix(new_color, rainbow, strength) / scales_strength;
 	
 	// bring up brightness
-	COLOR.rgb *= 1.1;
+	COLOR.rgb *= 1.3;
 	}
 }
